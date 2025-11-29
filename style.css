@@ -25,3 +25,29 @@ body {
 .door:hover {
   background: #e84343;
 }
+
+/* Perfekte responsive Darstellung für Türchen-Bilder */
+.door-image {
+  display: block;
+  margin: 20px auto;
+
+  /* Bildgröße */
+  max-width: 100%;
+  max-height: 80vh;
+
+  /* niemals verzerren */
+  height: auto;
+  width: auto;
+
+  /* Bild wird vollständig angezeigt */
+  object-fit: contain;
+
+  /* kleine Abrundung */
+  border-radius: 8px;
+
+  /* optional: leichte Schattenoptik */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+
