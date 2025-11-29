@@ -66,6 +66,14 @@ h1 {
   margin-left: 6px;
 }
 
+.tuerchen{
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #000000;
+}
+
 
 /* ================================
    KALENDER GRID
