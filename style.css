@@ -167,6 +167,16 @@ h1 {
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
+.door-video {
+  display: block;
+  max-width: 90%;
+  max-height: 70vh;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
 
 /* ================================
    RESPONSIVE
