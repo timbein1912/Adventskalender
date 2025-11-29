@@ -2,24 +2,19 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Adventskalender für dich ❤️</title>
+  <title>Adventskalender</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Adventskalender für dich 🎄</h1>
-  <p>Klick auf das heutige Türchen 💌</p>
-
-  <div id="calendar"></div>
-
-  <!-- Modal: WICHTIG -> class="hidden" -->
-  <div id="modal" class="hidden">
-    <div id="modal-content">
-      <span id="close">&times;</span>
-      <div id="entry-content"></div>
-    </div>
+  <h1>Adventskalender</h1>
+  <div class="calendar">
+    <!-- 24 Türchen -->
+    <script>
+      for (let i = 1; i <= 24; i++) {
+        document.write(`<a class="door" href="doors/${i}.html">${i}</a>`);
+      }
+    </script>
   </div>
-
-  <!-- Script am Ende, damit DOM schon da ist -->
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
