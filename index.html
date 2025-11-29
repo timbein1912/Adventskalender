@@ -6,15 +6,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Adventskalender</h1>
-  <div class="calendar">
-    <!-- 24 Türchen -->
-    <script>
-      for (let i = 1; i <= 24; i++) {
-        document.write(`<a class="door" href="doors/${i}.html">${i}</a>`);
-      }
-    </script>
+  <div class="page-overlay">
+    <header>
+      <h1>🎄 Adventskalender 🎁</h1>
+      <p class="subtitle">Öffne jeden Tag ein neues Türchen im Dezember</p>
+    </header>
+
+    <main>
+      <div id="calendar" class="calendar">
+        <!-- Türchen werden per JavaScript eingefügt -->
+      </div>
+    </main>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

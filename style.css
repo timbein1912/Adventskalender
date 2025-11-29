@@ -1,53 +1,185 @@
-body {
-  font-family: sans-serif;
-  text-align: center;
-  background: #f7f1e3;
+/* ================================
+   GLOBAL SETUP
+================================ */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
+
+  /* Hintergrundbild — Pfad ggf. anpassen */
+  background: url("assets/images/background.png") center center no-repeat fixed;
+  background-size: cover;
+
+  min-height: 100vh;
+}
+
+/* Overlay für bessere Lesbarkeit */
+.page-overlay {
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 4rem;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Debug Hinweis */
+.debug-mode h1::after {
+  content: " (DEBUG)";
+  font-size: 0.6em;
+  color: #ffd166;
+  margin-left: 6px;
+}
+
+
+/* ================================
+   KALENDER GRID
+================================ */
 
 .calendar {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  max-width: 600px;
-  margin: 20px auto;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  width: 100%;
+  padding: 2rem;
+
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+
+/* ================================
+   TÜRCHEN
+================================ */
+
 .door {
-  background: #d63031;
-  color: white;
-  font-size: 24px;
-  padding: 30px 0;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+
+  /* Weißer Rand */
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+
+  /* Transparente Füllung */
+  background: rgba(255, 255, 255, 0.04);
+
+  /* Schatten */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+
   text-decoration: none;
-  border-radius: 8px;
-  transition: 0.2s;
+
+  /* Zufälliger Versatz (per JS gesetzt) */
+  transform: translate(var(--offsetX, 0px), var(--offsetY, 0px));
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 .door:hover {
-  background: #e84343;
+  background: rgba(255, 255, 255, 0.12);
+  transform:
+    translate(var(--offsetX, 0px), var(--offsetY, 0px))
+    scale(1.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Perfekte responsive Darstellung für Türchen-Bilder */
+
+/* Gesperrte Türchen */
+.door.locked {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+.door.locked:hover {
+  transform: translate(var(--offsetX, 0px), var(--offsetY, 0px));
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* ================================
+   BILDER IN DEN TÜRCHEN-SEITEN
+================================ */
+
 .door-image {
   display: block;
   margin: 20px auto;
 
-  /* Bildgröße */
   max-width: 100%;
   max-height: 80vh;
 
-  /* niemals verzerren */
-  height: auto;
-  width: auto;
-
-  /* Bild wird vollständig angezeigt */
   object-fit: contain;
-
-  /* kleine Abrundung */
   border-radius: 8px;
 
-  /* optional: leichte Schattenoptik */
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 
+/* ================================
+   RESPONSIVE
+================================ */
 
+@media (max-width: 900px) {
+  .calendar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem;
+  }
+
+  .door {
+    font-size: 1.4rem;
+    min-height: 70px;
+  }
+}
+
+@media (max-width: 420px) {
+  .calendar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
