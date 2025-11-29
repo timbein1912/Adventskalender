@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-body {
+body.hauptseite {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Hintergrundbild — Pfad ggf. anpassen */
@@ -18,17 +18,17 @@ body {
   min-height: 100vh;
 }
 
-/* leichte Abdunklung fürs ganze Bild */
-.page-overlay {
-  min-height: 100vh;
-  background: rgba(254, 254, 254, 0.1); /* sehr leicht, damit Schwarz gut lesbar bleibt */
-  backdrop-filter: blur(2px);
+body.tuerchen {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem 4rem;
+  /* einfarbiger beiger Hintergrund */
+  background: #e6d5ac;  /* schönes warmes Beige */
+
+  min-height: 100vh;
 }
+
+
+
 
 /* ================================
    HEADER
