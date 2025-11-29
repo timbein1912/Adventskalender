@@ -1,0 +1,85 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f7f3ee;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-top: 10px;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.door {
+  background: #b3002d;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.1s, box-shadow 0.1s, opacity 0.2s;
+}
+
+.door:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+.door.locked {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+#modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  text-align: left;
+}
+
+#entry-content img,
+#entry-content iframe {
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+}
+
+#entry-content p {
+  margin-top: 10px;
+}
+
+#close {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+}
