@@ -42,6 +42,8 @@ h1 {
   box-shadow: none;
 }
 
+/* Modal */
+
 #modal {
   position: fixed;
   inset: 0;

@@ -1,5 +1,8 @@
-// Hier trägst du deine Inhalte ein
-// Du kannst für jeden Tag ein Bild oder Video + Text eintragen
+// ===== Einstellungen =====
+const DEBUG_ALWAYS_OPEN = true; // zum Testen: alle Türchen offen
+// =========================
+
+// Inhalte pro Tag
 const entries = {
   1: {
     type: "image",
@@ -16,29 +19,31 @@ const entries = {
     src: "https://via.placeholder.com/400x250?text=Tag+3",
     text: "Tag 3: Heute bekommst du eine virtuelle Umarmung 🤗"
   }
-  // ... bis 24 erweitern
+  // ...weitere Tage selbst ergänzen
 };
 
-// wenn du willst, kannst du hier reale Links zu deinen Bildern/Videos eintragen
-// z.B. type: "video", src: "https://www.youtube.com/embed/DEIN_VIDEO_ID"
+// DOM-Elemente holen (Script ist am Ende von index.html, DOM ist also schon da)
+const calendar = document.getElementById("calendar");
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("close");
+const entryContent = document.getElementById("entry-content");
+
+// heutiger Tag (für Dezember gedacht)
+const today = new Date();
+let currentDay = today.getDate();
+
+// zum Testen alle Türchen öffnen
+if (DEBUG_ALWAYS_OPEN) {
+  currentDay = 24;
+}
 
 function initCalendar() {
-  const calendar = document.getElementById("calendar");
-
-  // heute (für Dezember gedacht)
-  const today = new Date();
-  //const currentDay = today.getDate(); // 1–31
-  // TESTMODUS: alle Tage sofort freigeschaltet
-  const currentDay = 24;
-
-
   for (let day = 1; day <= 24; day++) {
     const door = document.createElement("div");
     door.className = "door";
     door.textContent = day;
 
     if (day > currentDay) {
-      // Türchen noch gesperrt
       door.classList.add("locked");
     } else {
       door.addEventListener("click", () => openDoor(day));
@@ -49,17 +54,17 @@ function initCalendar() {
 }
 
 function openDoor(day) {
-  const modal = document.getElementById("modal");
-  const contentDiv = document.getElementById("entry-content");
-
   const entry = entries[day];
 
   if (!entry) {
-    contentDiv.innerHTML = `<h2>Tag ${day}</h2><p>Für diesen Tag hast du noch nichts eingetragen 😊</p>`;
+    entryContent.innerHTML = `
+      <h2>Tag ${day}</h2>
+      <p>Für diesen Tag hast du noch keinen Inhalt eingetragen 😊</p>
+    `;
   } else {
     let mediaHtml = "";
     if (entry.type === "image") {
-      mediaHtml = `<img src="${entry.src}" alt="Tag ${day} Bild">`;
+      mediaHtml = `<img src="${entry.src}" alt="Tag ${day}">`;
     } else if (entry.type === "video") {
       mediaHtml = `
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
@@ -68,7 +73,7 @@ function openDoor(day) {
         </div>`;
     }
 
-    contentDiv.innerHTML = `
+    entryContent.innerHTML = `
       <h2>Tag ${day}</h2>
       ${mediaHtml}
       <p>${entry.text}</p>
@@ -78,20 +83,17 @@ function openDoor(day) {
   modal.classList.remove("hidden");
 }
 
-// Modal schließen
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("modal");
-  const close = document.getElementById("close");
-
-  close.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-
-  initCalendar();
+// Modal schließen über X
+closeBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
 });
+
+// Modal schließen, wenn man auf den dunklen Hintergrund klickt
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+  }
+});
+
+// Kalender initialisieren
+initCalendar();
