@@ -87,35 +87,21 @@ h1 {
 
 .door {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 1.8rem;
   font-weight: 700;
-  color: #000000;  /* schwarze Zahlen */
-
-  /* Schwarzer Rand */
+  color: #000000;
   border: 2px solid #000000;
   border-radius: 12px;
-
-  /* sehr dezente helle Füllung */
   background: rgba(255, 255, 255, 0.7);
-
-  /* leichter Schatten, damit es sich vom Hintergrund abhebt */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
   text-decoration: none;
-
-  /* Zufälliger Versatz (per JS gesetzt) */
   transform: translate(var(--offsetX, 0px), var(--offsetY, 0px));
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
+
 
 .door:hover {
   background: rgba(255, 255, 255, 0.95);
