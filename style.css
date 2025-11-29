@@ -10,7 +10,6 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #ffffff;
 
   /* Hintergrundbild — Pfad ggf. anpassen */
   background: url("assets/images/background.png") center center no-repeat fixed;
@@ -22,7 +21,7 @@ body {
 /* leichte Abdunklung fürs ganze Bild */
 .page-overlay {
   min-height: 100vh;
-  background: rgba(255, 255, 255, 0.1); /* sehr leicht, damit Schwarz gut lesbar bleibt */
+  background: rgba(254, 254, 254, 0.1); /* sehr leicht, damit Schwarz gut lesbar bleibt */
   backdrop-filter: blur(2px);
 
   display: flex;
