@@ -41,13 +41,25 @@ h1 {
   margin-bottom: 0.5rem;
   font-weight: 700;
   color: #000000;
+  text-shadow: none;
+}
 
-  /* Weißer Rand */
+/* Untertitel */
+.subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Überschrift NUR auf der Startseite mit weißem Rand */
+.main-title {
+  /* weißer Rand / Outline */
   text-shadow:
     -2px -2px 0 #ffffff,
-    2px -2px 0 #ffffff,
-    -2px 2px 0 #ffffff,
-    2px 2px 0 #ffffff;
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff;
 }
 
 
@@ -66,12 +78,6 @@ h1 {
   margin-left: 6px;
 }
 
-h1.tuerchen {
-  text-shadow: none !important;  /* entfernt den weißen Rand */
-  color: #000000;                /* bleibt schwarz */
-  font-size: 2.2rem;             /* optional: eigene Größe */
-  margin-bottom: 1rem;
-}
 
 
 
