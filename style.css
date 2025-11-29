@@ -91,14 +91,10 @@ h1 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
 
-  /* Breite */
-  width: min(1000px, 100% - 2rem);
-  margin: 2rem auto 0;
-
-  /* NEU: nimmt viel Höhe ein und verteilt die Reihen */
-  min-height: 60vh;              /* mindestens 60% der Bildschirmhöhe */
-  align-content: space-evenly;   /* Reihen gleichmäßig über die Höhe verteilen */
-  justify-items: center;         /* Türen in ihrer Spalte zentrieren */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 0;
   
   /* KEIN eigener Hintergrund, KEIN Schatten, KEINE Rundung mehr */
   background: none;
@@ -200,14 +196,11 @@ h1 {
    RESPONSIVE
 ================================ */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .calendar {
     grid-template-columns: repeat(4, 1fr);
-    min-height: 70vh;            /* auf dem Handy noch höher */
-    gap: 0.7rem;
   }
 }
-
 
 @media (max-width: 600px) {
   .calendar {
