@@ -66,13 +66,13 @@ h1 {
   margin-left: 6px;
 }
 
-.tuerchen{
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  color: #000000;
+h1.tuerchen {
+  text-shadow: none !important;  /* entfernt den weißen Rand */
+  color: #000000;                /* bleibt schwarz */
+  font-size: 2.2rem;             /* optional: eigene Größe */
+  margin-bottom: 1rem;
 }
+
 
 
 /* ================================
