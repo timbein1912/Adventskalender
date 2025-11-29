@@ -48,13 +48,18 @@ h1 {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hidden {
+/* WICHTIG: display nur über diese Regel steuern */
+#modal.hidden {
   display: none;
+}
+
+/* wenn nicht hidden => flex anzeigen */
+#modal:not(.hidden) {
+  display: flex;
 }
 
 #modal-content {
