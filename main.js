@@ -27,7 +27,10 @@ function initCalendar() {
 
   // heute (für Dezember gedacht)
   const today = new Date();
-  const currentDay = today.getDate(); // 1–31
+  //const currentDay = today.getDate(); // 1–31
+  // TESTMODUS: alle Tage sofort freigeschaltet
+  const currentDay = 24;
+
 
   for (let day = 1; day <= 24; day++) {
     const door = document.createElement("div");
