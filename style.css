@@ -1,0 +1,53 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #f7f1e3;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.door {
+  background: #d63031;
+  color: white;
+  font-size: 24px;
+  padding: 30px 0;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.door:hover {
+  background: #e84343;
+}
+
+/* Perfekte responsive Darstellung für Türchen-Bilder */
+.door-image {
+  display: block;
+  margin: 20px auto;
+
+  /* Bildgröße */
+  max-width: 100%;
+  max-height: 80vh;
+
+  /* niemals verzerren */
+  height: auto;
+  width: auto;
+
+  /* Bild wird vollständig angezeigt */
+  object-fit: contain;
+
+  /* kleine Abrundung */
+  border-radius: 8px;
+
+  /* optional: leichte Schattenoptik */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+
