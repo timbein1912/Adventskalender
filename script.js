@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   days.sort(() => Math.random() - 0.5);
 
   //const today = new Date();
-  const today = new Date(2024, 11, 5); // Jahr egal, Monat 11 = Dezember
+  //const today = new Date(2024, 11, 5); // Jahr egal, Monat 11 = Dezember
   const currentDay = today.getDate();
   const currentMonth = today.getMonth(); // 0 = Jan, 11 = Dez
 
